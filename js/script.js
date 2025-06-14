@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Eventos para ações de "Alterar" e "Excluir" produto podem ser implementados conforme a lógica desejada
+// Eventos para ações de "Alterar" e "Excluir" produto
 document.getElementById('btnAlterarProduto').addEventListener('click', () => {
   alert('Função de alterar produto em desenvolvimento...');
 });
