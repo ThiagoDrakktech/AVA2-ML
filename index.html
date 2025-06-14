@@ -1,37 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-
-    <title>Libre Mercado</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Mercado Livre - Protótipo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Libre Mercado - DrakkTech</h1>
-        <nav>
-            <ul>
-                <li><a href="client.html">Cadastro de Cliente</a></li>
-                <li><a href="seller.html">Cadastro de Vendedor</a></li>
-                <li><a href="reg_products.html">Cadastro de Produtos</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="inicio">
-            <h2>Bem-vindo ao Libre Mercado da DrakkTech</h2>
-            <p>Deseja ser um vendedor ou quer comprar conosco?</p>
-        </section>
-        <div class="container">
-            <h2>Cadastre-se ou Gerencie seus Produtos</h2>
-            <p>Escolha a opção nos menus acima</p>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; <span id="year"></span> Libre Mercado - DrakkTech</p>
-    </footer>
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+  <header>
+    <div class="logo">
+     <a href="index.html"> 
+      <img src="img/img-site/logo.png" href="index.html" alt="Logo do Libre Mercado">
+    </div>
+    <h1>Libre Mercado</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showSection('consumidor')">Cadastro de Consumidor</a></li>
+        <li><a href="#" onclick="showSection('vendedor')">Cadastro de Vendedor</a></li>
+        <li><a href="#" onclick="showSection('produto')">Cadastro de Produtos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção Consumidor -->
+  <section id="consumidor" class="section">
+    <h2>Cadastro de Consumidor</h2>
+    <form id="formConsumidor">
+      <label for="nomeConsumidor">Nome:</label>
+      <input type="text" id="nomeConsumidor" name="nomeConsumidor" required>
+
+      <label for="cpfConsumidor">CPF:</label>
+      <input type="text" id="cpfConsumidor" name="cpfConsumidor" required>
+
+      <label for="enderecoConsumidor">Endereço:</label>
+      <input type="text" id="enderecoConsumidor" name="enderecoConsumidor" required>
+
+      <label for="telefoneConsumidor">Telefone:</label>
+      <input type="tel" id="telefoneConsumidor" name="telefoneConsumidor" required>
+
+      <label for="emailConsumidor">E-mail:</label>
+      <input type="email" id="emailConsumidor" name="emailConsumidor" required>
+
+      <label for="senhaConsumidor">Senha:</label>
+      <input type="password" id="senhaConsumidor" name="senhaConsumidor" required>
+      
+      <button type="submit">Cadastrar Consumidor</button>
+    </form>
+  </section>
+
+  <!-- Seção Vendedor -->
+  <section id="vendedor" class="section" style="display:none;">
+    <h2>Cadastro de Vendedor</h2>
+    <form id="formVendedor">
+      <label for="nomeVendedor">Nome:</label>
+      <input type="text" id="nomeVendedor" name="nomeVendedor" required>
+
+      <label for="cpfVendedor">CPF:</label>
+      <input type="text" id="cpfVendedor" name="cpfVendedor" required>
+
+      <label for="enderecoVendedor">Endereço:</label>
+      <input type="text" id="enderecoVendedor" name="enderecoVendedor" required>
+
+      <label for="telefoneVendedor">Telefone:</label>
+      <input type="tel" id="telefoneVendedor" name="telefoneVendedor" required>
+
+      <label for="emailVendedor">E-mail:</label>
+      <input type="email" id="emailVendedor" name="emailVendedor" required>
+
+      <label for="senhaVendedor">Senha:</label>
+      <input type="password" id="senhaVendedor" name="senhaVendedor" required>
+
+      <fieldset>
+        <legend>Dados para Depósito</legend>
+        <label for="banco">Banco:</label>
+        <input type="text" id="banco" name="banco" required>
+
+        <label for="agencia">Agência:</label>
+        <input type="text" id="agencia" name="agencia" required>
+
+        <label for="conta">Conta:</label>
+        <input type="text" id="conta" name="conta" required>
+      </fieldset>
+      
+      <button type="submit">Cadastrar Vendedor</button>
+    </form>
+  </section>
+
+  <!-- Seção Produtos -->
+  <section id="produto" class="section" style="display:none;">
+    <h2>Cadastro de Produtos</h2>
     
+    <!-- (exemplo com valores fictícios) -->
+  <div id="listaProdutos">
+   <h3>Produtos Cadastrados</h3>
+    <div id="produtosCadastrados">
+    <!-- Produto fixo: Caneca -->
+    <div class="exemplo-produto">
+      <img src="/img/img-products/caneca.png" alt="Caneca">
+      <h4>Caneca</h4>
+      <p><strong>Descrição:</strong> Caneca com design colorido.</p>
+      <p><strong>Preço:</strong> R$50,00</p>
+      <p><strong>Prazo de entrega:</strong> 3 dias</p>
+      <p><strong>Disponível:</strong> Sim</p>
+    </div>
+  </div>
+</div>
+    
+    <!-- Formulário para inclusão/alteração de produtos -->
+    <form id="formProduto">
+      <label for="nomeProduto">Nome do Produto:</label>
+      <input type="text" id="nomeProduto" name="nomeProduto" required>
+
+      <label for="descricaoProduto">Descrição:</label>
+      <textarea id="descricaoProduto" name="descricaoProduto" required></textarea>
+
+      <label for="precoProduto">Preço (R$):</label>
+      <input type="number" id="precoProduto" name="precoProduto" step="0.01" required>
+
+      <label for="prazoEntrega">Prazo de Entrega (dias):</label>
+      <input type="number" id="prazoEntrega" name="prazoEntrega" required>
+
+      <label for="foto">Foto do Produto (URL):</label>
+      <input type="text" id="foto" name="foto" required>
+      
+      <label for="disponivel">Disponível para venda?</label>
+      <select id="disponivel" name="disponivel">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <button type="submit">Salvar Produto</button>
+    </form>
+    
+    <!-- Botões para ações extras -->
+    <button id="btnAlterarProduto">Alterar Produto</button>
+    <button id="btnExcluirProduto">Excluir Produto</button>
+  </section>
+
 </body>
 </html>
